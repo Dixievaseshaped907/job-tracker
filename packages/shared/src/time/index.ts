@@ -1,5 +1,6 @@
 // Shared timeline formatting, relative-age parsing, and local date-input helpers.
 import { platformMeta } from "../platforms";
+import { AGE_RE, BARE_AGE_REMAINDER_RE } from "./relativeAgePatterns";
 
 const MINUTE = 60_000;
 const HOUR = 60 * MINUTE;
@@ -101,9 +102,6 @@ const ELAPSED_MS: Partial<Record<AgeUnit, number>> = {
 // Reject implausible counts as scrape errors.
 const MAX_COUNT = 1000;
 
-const AGE_RE =
-  /\b(\d{1,5}|an?|one)\s*\+?\s*(minutes?|mins?|hours?|hrs?|days?|weeks?|wks?|months?|mos?|years?|yrs?)\b/;
-
 function daysInUtcMonth(year: number, monthIndex: number): number {
   return new Date(Date.UTC(year, monthIndex + 1, 0)).getUTCDate();
 }
@@ -157,8 +155,7 @@ export function parseRelativeAge(text: string, capturedAt: string): ParsedRelati
 
   // "30 days remaining" is a deadline, not an age — the same shape pointing the other
   // way. Only accept a bare age phrase, or one explicitly marked as past.
-  const isPast =
-    /\bago\b/.test(s) || /^(posted|reposted|listed)?\s*[^a-z]*$/.test(s.replace(m[0], ""));
+  const isPast = /\bago\b/.test(s) || BARE_AGE_REMAINDER_RE.test(s.replace(m[0], ""));
   if (!isPast) return null;
 
   const rawCount = m[1];

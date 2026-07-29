@@ -13,6 +13,7 @@ import {
 } from "./index";
 import { registerPlatform } from "../platforms";
 import golden from "./relative_age.golden.json";
+import { AGE_RE, BARE_AGE_REMAINDER_RE } from "./relativeAgePatterns";
 
 describe("fmtAbsolute", () => {
   it("renders — for a null timestamp", () => {
@@ -237,6 +238,15 @@ describe("parseRelativeAge properties", () => {
       expect(parseRelativeAge(text, "2026-07-03T12:00:00Z")).toBeNull();
     }
     expect(parseRelativeAge("2 months ago", "")).toBeNull();
+  });
+});
+
+describe("relative-age regexp safety", () => {
+  it("rejects long raw whitespace runs without ambiguous backtracking", () => {
+    const spaces = " ".repeat(100_000);
+    expect(AGE_RE.exec(`1${spaces}x`)).toBeNull();
+    expect(AGE_RE.exec(`1${spaces}+${spaces}x`)).toBeNull();
+    expect(BARE_AGE_REMAINDER_RE.test(`posted${spaces}x`)).toBe(false);
   });
 });
 
