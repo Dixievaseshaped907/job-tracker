@@ -6,7 +6,7 @@ A job search rarely stays in one place. The same opportunity can appear in a sea
 
 Job Tracker is a self-hosted workspace built around one lasting record per job. Listings, status changes, notes, decisions, and materials stay attached to that opportunity. A browser extension captures details and reliable lifecycle updates, while a local Kanban dashboard keeps the process visible and under your control.
 
-![Job Tracker dashboard](docs/images/dashboard.png) ![Job Tracker browser extension](docs/images/extension.png)
+![Job Tracker overview](docs/images/social-preview.png)
 
 ## Features
 
@@ -31,6 +31,20 @@ Job Tracker is a self-hosted workspace built around one lasting record per job. 
 LinkedIn and supported LinkedIn job emails in Gmail are the only built-in integrations today. The integration layer is designed to support additional built-in or private/local adapters without changing the core job model.
 
 These unofficial integrations depend on third-party page layouts, may require adapter updates when those layouts change, and remain subject to each platform’s terms.
+
+## See it in action
+
+### Dashboard
+
+Keep every opportunity and its current stage visible from the local Kanban dashboard.
+
+![Job Tracker dashboard](docs/images/dashboard.png)
+
+### Browser extension
+
+Capture job details, review decision signals, and update tracked opportunities without leaving the listing.
+
+![Job Tracker browser extension](docs/images/extension.png)
 
 ## Data and privacy
 
